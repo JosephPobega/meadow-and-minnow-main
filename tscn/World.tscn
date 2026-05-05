@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://yuh54awfu0d5"]
+[gd_scene format=3 uid="uid://dax7sh3ib0o0y"]
 
 [ext_resource type="PackedScene" uid="uid://d7vcb0ugmxjm" path="res://tscn/Hotbar.tscn" id="1_6sclq"]
 [ext_resource type="PackedScene" uid="uid://bxfbjcoen6on4" path="res://tscn/Menu.tscn" id="2_fanj6"]
@@ -649,7 +649,6 @@ size = Vector2(39, 54)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=375801724]
 layer = 0
-visible = false
 
 [node name="Hotbar" parent="CanvasLayer" unique_id=2138964337 instance=ExtResource("1_6sclq")]
 custom_minimum_size = Vector2(0, -40)
@@ -679,9 +678,6 @@ position = Vector2(0, 9)
 position = Vector2(-1.5, -6)
 shape = SubResource("RectangleShape2D_qp52p")
 
-[node name="Hoe" parent="." unique_id=2117347503 instance=ExtResource("11_fanj6")]
-position = Vector2(-309, -226)
-
 [node name="Japapeno" parent="." unique_id=305891358 instance=ExtResource("9_y0k48")]
 position = Vector2(-303, -478)
 
@@ -689,7 +685,10 @@ position = Vector2(-303, -478)
 position = Vector2(-99, -444)
 
 [node name="WateringCan" parent="." unique_id=1155516812 instance=ExtResource("10_adtmm")]
-position = Vector2(-50, -278)
+position = Vector2(-36, -257)
 
 [node name="WateringCan2" parent="." unique_id=1278951257 instance=ExtResource("10_adtmm")]
 position = Vector2(45, -217)
+
+[node name="Hoe" parent="." unique_id=2117347503 instance=ExtResource("11_fanj6")]
+position = Vector2(-284, -146)

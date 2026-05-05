@@ -1,6 +1,6 @@
 extends Area2D
 
-var item_name = "Hoe"
+var item_name := "Hoe"
 
 func _ready():
 	connect("body_entered", _on_body_entered)

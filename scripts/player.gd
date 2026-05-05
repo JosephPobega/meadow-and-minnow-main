@@ -1,11 +1,14 @@
 extends CharacterBody2D
 
 # --- INVENTORY CONFIG ---
-const HOTBAR_SIZE := 8
+const HOTBAR_SIZE := 6
 const EXTRA_SIZE := 8
 
 var hotbar: Array = []
 var extra_inventory: Array = []
+
+# --- HOTBAR SELECTION ---
+var selected_index := 0
 
 # --- UI REFERENCES ---
 @onready var hotbar_ui = $"../CanvasLayer/Hotbar"
@@ -24,6 +27,28 @@ func _ready():
 
 	# Update hotbar UI
 	hotbar_ui.update_hotbar(hotbar)
+	hotbar_ui.center_selector_later(selected_index)
+
+
+
+# ---------------------------------------------------------
+# HOTBAR SELECTION
+# ---------------------------------------------------------
+func select_slot(index: int):
+	selected_index = index
+	hotbar_ui.update_selector(index)
+
+
+func move_hotbar_selection(direction: int):
+	selected_index += direction
+
+	# Wrap around for 6 slots
+	if selected_index < 0:
+		selected_index = HOTBAR_SIZE - 1
+	elif selected_index >= HOTBAR_SIZE:
+		selected_index = 0
+
+	hotbar_ui.update_selector(selected_index)
 
 
 # ---------------------------------------------------------
@@ -66,9 +91,26 @@ func add_to_extra_inventory(item_name: String):
 
 
 # ---------------------------------------------------------
-# ESC KEY — OPEN/CLOSE MENU
+# INPUT HANDLING
 # ---------------------------------------------------------
 func _input(event):
+
+	# Number keys (1–6)
+	if event.is_action_pressed("hotbar_1"): select_slot(0)
+	if event.is_action_pressed("hotbar_2"): select_slot(1)
+	if event.is_action_pressed("hotbar_3"): select_slot(2)
+	if event.is_action_pressed("hotbar_4"): select_slot(3)
+	if event.is_action_pressed("hotbar_5"): select_slot(4)
+	if event.is_action_pressed("hotbar_6"): select_slot(5)
+
+	# Arrow keys
+	if event.is_action_pressed("ui_hotbar_left"):
+		move_hotbar_selection(-1)
+
+	if event.is_action_pressed("ui_hotbar_right"):
+		move_hotbar_selection(1)
+
+	# Menu toggle
 	if event.is_action_pressed("menu"):
 		menu_inventory.toggle(extra_inventory)
 
