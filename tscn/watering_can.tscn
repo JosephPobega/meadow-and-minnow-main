@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dfrumjj3xd21u"]
+
+[ext_resource type="Script" uid="uid://c8msf8qri1mvg" path="res://scripts/watering_can.gd" id="1_e3l2i"]
+[ext_resource type="Texture2D" uid="uid://dl3gv6rl314id" path="res://items/icons/WateringCan.png" id="2_i2g37"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jokc8"]
+size = Vector2(52.5, 30.5)
+
+[node name="WateringCan" type="Area2D" unique_id=1155516812]
+z_index = 100
+position = Vector2(159, 20)
+collision_layer = 3
+script = ExtResource("1_e3l2i")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1170176546]
+position = Vector2(-37, 40)
+scale = Vector2(0.421875, 0.375)
+texture = ExtResource("2_i2g37")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1459999676]
+position = Vector2(-37.75, 41.25)
+shape = SubResource("RectangleShape2D_jokc8")

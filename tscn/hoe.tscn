@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://nk7n0d7fh70d"]
+
+[ext_resource type="Script" uid="uid://biaxdkvplbrrf" path="res://scripts/hoe.gd" id="1_8e8yi"]
+[ext_resource type="Texture2D" uid="uid://b6gdo1alny6rk" path="res://items/icons/Hoe.png" id="2_2lyq6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yytvn"]
+size = Vector2(45, 66)
+
+[node name="Hoe" type="Area2D" unique_id=2117347503]
+z_index = 100
+position = Vector2(78, 17)
+collision_layer = 3
+script = ExtResource("1_8e8yi")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=714072576]
+position = Vector2(83.750015, 89.500015)
+scale = Vector2(0.10459181, 0.09489793)
+texture = ExtResource("2_2lyq6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=706024300]
+position = Vector2(85, 89)
+shape = SubResource("RectangleShape2D_yytvn")

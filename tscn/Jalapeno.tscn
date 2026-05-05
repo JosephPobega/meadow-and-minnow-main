@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ejwaj8cu3fxn"]
+
+[ext_resource type="Script" uid="uid://dpk2yafoih6s" path="res://tscn/jalapeno.gd" id="1_blini"]
+[ext_resource type="Texture2D" uid="uid://b2hl878tkt3vt" path="res://items/icons/Jalapeno.png" id="2_2ofws"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fl140"]
+size = Vector2(45, 42)
+
+[node name="Japapeno" type="Area2D" unique_id=305891358]
+z_index = 100
+collision_layer = 3
+script = ExtResource("1_blini")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1694819647]
+z_index = 10
+position = Vector2(93.99994, 67)
+scale = Vector2(0.1, 0.101)
+texture = ExtResource("2_2ofws")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1046707617]
+position = Vector2(92, 68)
+shape = SubResource("RectangleShape2D_fl140")

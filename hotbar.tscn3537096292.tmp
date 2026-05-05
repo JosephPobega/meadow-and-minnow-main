@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://b8ju17c6n7qnd"]
+
+[ext_resource type="Script" uid="uid://d2tag7me5ljep" path="res://hotbar.gd" id="1_qbt7h"]
+[ext_resource type="PackedScene" uid="uid://ut168e3p11hd" path="res://slot.tscn" id="2_l6vt0"]
+
+[node name="Hotbar" type="Control" unique_id=2138964337]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_qbt7h")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1192570066]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+alignment = 1
+
+[node name="Slot" parent="HBoxContainer" unique_id=939859011 instance=ExtResource("2_l6vt0")]
+layout_mode = 2
+
+[node name="Slot2" parent="HBoxContainer" unique_id=778950886 instance=ExtResource("2_l6vt0")]
+layout_mode = 2
+
+[node name="Slot3" parent="HBoxContainer" unique_id=2096831364 instance=ExtResource("2_l6vt0")]
+layout_mode = 2
+
+[node name="Slot4" parent="HBoxContainer" unique_id=2113611601 instance=ExtResource("2_l6vt0")]
+layout_mode = 2
+
+[node name="Slot5" parent="HBoxContainer" unique_id=1179703016 instance=ExtResource("2_l6vt0")]
+layout_mode = 2
+
+[node name="Slot6" parent="HBoxContainer" unique_id=1240848633 instance=ExtResource("2_l6vt0")]
+layout_mode = 2

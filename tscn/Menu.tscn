@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bxfbjcoen6on4"]
+
+[ext_resource type="Script" uid="uid://bj84p3m1gmc8q" path="res://scripts/menu.gd" id="1_uubjt"]
+[ext_resource type="PackedScene" uid="uid://ut168e3p11hd" path="res://tscn/Slot.tscn" id="2_5yleq"]
+
+[node name="Menu" type="Control" unique_id=1224194843]
+visible = false
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -130.0
+offset_top = 460.0
+offset_right = -90.0
+offset_bottom = 500.0
+grow_horizontal = 2
+script = ExtResource("1_uubjt")
+
+[node name="Panel" type="Panel" parent="." unique_id=1245961430]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=105307386]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 4
+
+[node name="Slot" parent="GridContainer" unique_id=939859011 instance=ExtResource("2_5yleq")]
+layout_mode = 2
