@@ -445,7 +445,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qnedo")
 }],
-"loop": true,
+"loop": false,
 "name": &"hoe_down",
 "speed": 5.0
 }, {
@@ -456,7 +456,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_k85er")
 }],
-"loop": true,
+"loop": false,
 "name": &"hoe_left",
 "speed": 5.0
 }, {
@@ -467,7 +467,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_y1dt5")
 }],
-"loop": true,
+"loop": false,
 "name": &"hoe_right",
 "speed": 5.0
 }, {
@@ -478,7 +478,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_76bt2")
 }],
-"loop": true,
+"loop": false,
 "name": &"hoe_up",
 "speed": 5.0
 }, {
@@ -669,7 +669,7 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=603881687]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_1rslu")
-animation = &"hoe_down"
+animation = &"hoe_up"
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1817511822]
 position = Vector2(0, 9)
