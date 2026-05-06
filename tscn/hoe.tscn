@@ -8,7 +8,7 @@ size = Vector2(45, 66)
 
 [node name="Hoe" type="Area2D" unique_id=2117347503]
 z_index = 100
-position = Vector2(78, 17)
+position = Vector2(72, 7)
 collision_layer = 3
 script = ExtResource("1_8e8yi")
 metadata/_edit_group_ = true
@@ -19,5 +19,5 @@ scale = Vector2(0.10459181, 0.09489793)
 texture = ExtResource("2_2lyq6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=706024300]
-position = Vector2(85, 89)
+position = Vector2(89, 91)
 shape = SubResource("RectangleShape2D_yytvn")

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ejwaj8cu3fxn"]
 
-[ext_resource type="Script" uid="uid://dpk2yafoih6s" path="res://tscn/jalapeno.gd" id="1_blini"]
+[ext_resource type="Script" uid="uid://dpk2yafoih6s" path="res://scripts/jalapeno.gd" id="1_blini"]
 [ext_resource type="Texture2D" uid="uid://b2hl878tkt3vt" path="res://items/icons/Jalapeno.png" id="2_2ofws"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fl140"]
