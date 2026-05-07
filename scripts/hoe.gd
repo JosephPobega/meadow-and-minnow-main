@@ -15,31 +15,31 @@ func _on_body_entered(body):
 		})
 		queue_free()
 
-func use(player):
+func use(Player):
 	# Prevent spamming
-	if player.is_using_tool:
+	if Player.is_using_tool:
 		return
 
-	player.is_using_tool = true
+	Player.is_using_tool = true
 
 	# Pick correct animation based on direction
-	var dir: Vector2 = player.last_dir
+	var dir: Vector2 = Player.last_dir
 	if abs(dir.x) > abs(dir.y):
-		player.anim.play("hoe_right" if dir.x > 0 else "hoe_left")
+		Player.anim.play("hoe_right" if dir.x > 0 else "hoe_left")
 	else:
-		player.anim.play("hoe_down" if dir.y > 0 else "hoe_up")
+		Player.anim.play("hoe_down" if dir.y > 0 else "hoe_up")
 
 	# Impact frame timing
-	await player.get_tree().create_timer(0.15).timeout
+	await Player.get_tree().create_timer(0.15).timeout
 
 	# Tile interaction
-	var tile_pos: Vector2i = player.get_facing_tile()
-	if player.can_till(tile_pos):
-		player.till(tile_pos)
+	var tile_pos: Vector2i = Player.get_facing_tile()
+	if Player.can_till(tile_pos):
+		Player.till(tile_pos)
 
 	# Wait for animation to finish
-	await player.anim.animation_finished
+	await Player.anim.animation_finished
 
 	# Reset
-	player.anim.play("idle")
-	player.is_using_tool = false
+	Player.anim.play("idle")
+	Player.is_using_tool = false

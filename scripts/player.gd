@@ -8,15 +8,16 @@ const EXTRA_SIZE := 8
 
 var hotbar: Array = []
 var extra_inventory: Array = []
-var selected_index := 0
+var selected_index: int = 0
 
 # ---------------------------------------------------------
 # TILE CONSTANTS
 # ---------------------------------------------------------
-const GRASS_TILE_ID := 0
-const TILLED_SOIL_TILE_ID := 1
-const WET_SOIL_TILE_ID := 2
-const PLANTED_TILE_ID := 3
+const GRASS_ATLAS := Vector2i(9, 2)
+const TILLED_ATLAS := Vector2i(9, 10)
+const WET_ATLAS := Vector2i(9, 11)
+const PLANTED_ATLAS := Vector2i(5, 10)
+
 
 # ---------------------------------------------------------
 # NODE REFERENCES
@@ -29,8 +30,8 @@ const PLANTED_TILE_ID := 3
 # ---------------------------------------------------------
 # MOVEMENT CONFIG
 # ---------------------------------------------------------
-@export var walk_speed := 120.0
-@export var run_speed := 220.0
+@export var walk_speed: float = 120.0
+@export var run_speed: float = 220.0
 
 var last_dir: Vector2 = Vector2.DOWN
 var is_using_tool: bool = false
@@ -111,14 +112,9 @@ func _input(event):
 # ---------------------------------------------------------
 # MOVEMENT
 # ---------------------------------------------------------
-func _physics_process(delta):
+func _physics_process(_delta):
 
-	if is_using_tool:
-		velocity = Vector2.ZERO
-		move_and_slide()
-		return
-
-	if menu_inventory.is_open:
+	if is_using_tool or menu_inventory.is_open:
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
@@ -128,15 +124,20 @@ func _physics_process(delta):
 		Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	)
 
-	var is_running := Input.is_action_pressed("run")
-	var speed := run_speed if is_running else walk_speed
+	var speed := run_speed if Input.is_action_pressed("run") else walk_speed
 
 	if input_vector != Vector2.ZERO:
 		input_vector = input_vector.normalized()
 		velocity = input_vector * speed
 
-		last_dir = input_vector
-		play_move_animation(input_vector)
+		# Force last_dir to 4 directions only
+		if abs(input_vector.x) > abs(input_vector.y):
+			last_dir = Vector2(sign(input_vector.x), 0)
+		else:
+			last_dir = Vector2(0, sign(input_vector.y))
+
+		play_move_animation(last_dir)
+
 	else:
 		velocity = Vector2.ZERO
 		anim.play("idle")
@@ -156,26 +157,32 @@ func play_move_animation(dir: Vector2):
 # TILE INTERACTION HELPERS
 # ---------------------------------------------------------
 func get_facing_tile() -> Vector2i:
-	var tile_size: Vector2 = Vector2(tilemap.tile_set.tile_size)
-	var world_pos = global_position + last_dir * tile_size
+	var base_size: Vector2 = Vector2(tilemap.tile_set.tile_size)
+	var scaled_size: Vector2 = base_size * tilemap.scale
+	var world_pos = global_position + last_dir * scaled_size
 	return tilemap.local_to_map(world_pos)
 
+func get_atlas(tile_pos: Vector2i) -> Vector2i:
+	return tilemap.get_cell_atlas_coords(0, tile_pos)
+
 func can_till(tile_pos: Vector2i) -> bool:
-	return tilemap.get_cell_source_id(0, tile_pos) == GRASS_TILE_ID
+	return get_atlas(tile_pos) == GRASS_ATLAS
+
 
 func till(tile_pos: Vector2i):
-	tilemap.set_cell(0, tile_pos, TILLED_SOIL_TILE_ID)
-	
-func can_water(tile_pos: Vector2i) -> bool:
-	return tilemap.get_cell_source_id(0, tile_pos) == TILLED_SOIL_TILE_ID
+	tilemap.set_cell(0, tile_pos, 0, TILLED_ATLAS)
 
+
+func can_water(tile_pos: Vector2i) -> bool:
+	return get_atlas(tile_pos) == TILLED_ATLAS 
+	
 func water(tile_pos: Vector2i):
 	if can_water(tile_pos):
-		tilemap.set_cell(0, tile_pos, WET_SOIL_TILE_ID)
-				
+		tilemap.set_cell(0, tile_pos, 0, WET_ATLAS)
+
 func can_plant(tile_pos: Vector2i) -> bool:
-	var id: int = tilemap.get_cell_source_id(0, tile_pos)
-	return id == TILLED_SOIL_TILE_ID or id == WET_SOIL_TILE_ID
+	var atlas := get_atlas(tile_pos)
+	return atlas == TILLED_ATLAS or atlas == WET_ATLAS
 
 func plant_seed(tile_pos: Vector2i):
-	tilemap.set_cell(0, tile_pos, PLANTED_TILE_ID)
+	tilemap.set_cell(0, tile_pos, 0, Vector2i(9, 10))

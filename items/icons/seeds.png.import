@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cdmax04bj7p1g"
-path="res://.godot/imported/FlowerSeedBag.png-679ea97fdcc82015d2ef5ab73eae0dbc.ctex"
+path="res://.godot/imported/seeds.png-e0c2506c670f37f86a71ff4e651bd72e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://items/icons/FlowerSeedBag.png"
-dest_files=["res://.godot/imported/FlowerSeedBag.png-679ea97fdcc82015d2ef5ab73eae0dbc.ctex"]
+source_file="res://items/icons/seeds.png"
+dest_files=["res://.godot/imported/seeds.png-e0c2506c670f37f86a71ff4e651bd72e.ctex"]
 
 [params]
 
