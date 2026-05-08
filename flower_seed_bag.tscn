@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://yk7d3nbbbuh0"]
+
+[ext_resource type="Script" uid="uid://tocrx6tdq7g6" path="res://scripts/flower_seed_bag.gd" id="1_hyt6g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hyt6g"]
+size = Vector2(37, 36)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kvxb5"]
+load_path = "res://.godot/imported/FlowerSeedBag.jpg-c31fc9902a1fb3340a7a0384eb14e289.ctex"
+
+[node name="FlowerSeedBag" type="Area2D" unique_id=2083556516]
+z_index = 100
+collision_layer = 3
+script = ExtResource("1_hyt6g")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1273771848]
+position = Vector2(291.5, 170)
+shape = SubResource("RectangleShape2D_hyt6g")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1233487873]
+position = Vector2(291.49997, 170.75)
+scale = Vector2(0.10571411, 0.107142806)
+texture = SubResource("CompressedTexture2D_kvxb5")

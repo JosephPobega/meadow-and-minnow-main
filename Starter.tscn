@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://b8cwqff750d73"]
+
+[ext_resource type="Texture2D" uid="uid://cfdvtsgg6cxk" path="res://image2.png" id="1_q4rd3"]
+[ext_resource type="Script" uid="uid://bbvesx1s5bnii" path="res://scripts/starter.gd" id="1_ujl6r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ujl6r"]
+bg_color = Color(0.54509807, 0.2901961, 0.22745098, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_weh2j"]
+bg_color = Color(0.36862746, 0.18431373, 0.14509805, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_541xq"]
+bg_color = Color(0.65882355, 0.35686275, 0.2784314, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gt8vu"]
+bg_color = Color(0.54509807, 0.2901961, 0.22745098, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g8dp0"]
+bg_color = Color(0.36862746, 0.18431373, 0.14509805, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h6ax5"]
+bg_color = Color(0.65882355, 0.35686275, 0.2784314, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[node name="Node2D" type="Node2D" unique_id=653339953]
+script = ExtResource("1_ujl6r")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=979085690]
+position = Vector2(579, 323.99997)
+scale = Vector2(0.8473608, 0.6078431)
+texture = ExtResource("1_q4rd3")
+
+[node name="Button" type="Button" parent="." unique_id=191238930]
+offset_left = 488.0
+offset_top = 456.0
+offset_right = 648.0
+offset_bottom = 522.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ujl6r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_weh2j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_541xq")
+text = "Exit
+"
+
+[node name="Button2" type="Button" parent="." unique_id=335497503]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 480.0
+offset_top = 384.0
+offset_right = 656.0
+offset_bottom = 452.0
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_gt8vu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g8dp0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h6ax5")
+text = "Start"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
